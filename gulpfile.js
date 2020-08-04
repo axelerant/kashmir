@@ -13,7 +13,7 @@ const tasks = [
   'default',
 ];
 
-tasks.forEach(task => {
+tasks.forEach((task) => {
   const t = require(`./gulp-tasks/${task}`);
   t(gulp, config);
 });

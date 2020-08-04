@@ -5,6 +5,6 @@ module.exports = (gulp, config) => {
     gulp
       .src([...config.scss.source, ...config.ts.source])
       .pipe(prettier())
-      .pipe(gulp.dest(file => file.base)),
+      .pipe(gulp.dest((file) => file.base)),
   );
 };

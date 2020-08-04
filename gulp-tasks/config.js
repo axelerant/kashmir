@@ -1,6 +1,6 @@
 module.exports = {
   scss: {
-    source: ['scss/[^_]*.scss'],
+    source: ['scss/**/[^_]*.scss'],
     destination: 'dist/css',
     options: {
       outputStyle: 'expanded',
@@ -23,10 +23,11 @@ module.exports = {
     options: {
       reporters: [
         {
-          formatter: 'string',
+          formatter: 'verbose',
           console: true,
         },
       ],
+      failOnError: process.env.CI === 'true',
     },
   },
   browserSync: {

@@ -1,4 +1,4 @@
-module.exports = gulp =>
+module.exports = (gulp) =>
   gulp.task(
     'default',
     gulp.series(

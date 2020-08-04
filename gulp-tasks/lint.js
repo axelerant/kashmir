@@ -1,5 +1,6 @@
 const stylelint = require('gulp-stylelint');
 const eslint = require('gulp-eslint');
+const gulpIf = require('gulp-if');
 
 module.exports = (gulp, config) => {
   gulp.task('lint:scss', () =>
@@ -10,7 +11,7 @@ module.exports = (gulp, config) => {
     gulp
       .src(config.ts.source)
       .pipe(eslint())
-      .pipe(eslint.format()),
+      .pipe(gulpIf(process.env.CI === 'true', eslint.failOnError())),
   );
 
   gulp.task('lint', gulp.parallel('lint:scss', 'lint:ts'));
